@@ -1,0 +1,24 @@
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <h1>Exam System</h1>
+        </div>
+        <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input formControlName="name" name="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input formControlName="email" name="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+              <input formControlName="password" name="password" />
+          </div>
+          <button
+            class="btn btn-primary" type="submit"> Login </button>
+        </form>
+        <a routerLink="/register">Register now</a>
+      </div>
+    </div>
