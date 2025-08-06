@@ -84,7 +84,7 @@ constructor(private createExamService: CreateExamService,examService: CreateExam
         console.log('Exam submitted successfully', result);
         clearInterval(this.intervalId); // ✅ أوقف التايمر
         localStorage.removeItem('jwtToken');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/nav']);
 
       },
       error: (err) => {
