@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="header">
+        <div class="icon"></div>
+        <h1>Create Exam</h1>
+        <p>Select a subject and create your personalized exam to test your knowledge</p>
+    </div>
+
+    <form (ngSubmit)="createExam()">
+        <div class="form-group">
+            <label for="subject">Choose Your Subject:</label>
+            <div class="subjects-grid">
+                <div class="subject-card" [class.selected]="selectedSubject === 'mathematics'" (click)="selectSubject('mathematics')">
+                    <span class="emoji">🔬</span>
+                    <div class="name">Science</div>
+                    
+                </div>
+                <div class="subject-card" [class.selected]="selectedSubject === 'science'" (click)="selectSubject('science')">
+                <span class="emoji">🔢</span>
+                    <div class="name">Mathematics</div>
+                </div>
+                <div class="subject-card" [class.selected]="selectedSubject === 'history'" (click)="selectSubject('history')">
+                    <span class="emoji">📚</span>
+                    <div class="name">History</div>
+                </div>
+                <div class="subject-card" [class.selected]="selectedSubject === 'english'" (click)="selectSubject('english')">
+                    <span class="emoji">📝</span>
+                    <div class="name">English</div>
+                </div>
+                <div class="subject-card" [class.selected]="selectedSubject === 'geography'" (click)="selectSubject('geography')">
+                    <span class="emoji">🌍</span>
+                    <div class="name">Geography</div>
+                </div>
+                <div class="subject-card" [class.selected]="selectedSubject === 'physics'" (click)="selectSubject('physics')">
+                    <span class="emoji">⚛️</span>
+                    <div class="name">Physics</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <button type="submit" class="create-btn" [disabled]="!selectedSubject">
+            Start Exam
+        </button>
+        
+<div *ngIf="exam">
+  <div class="timer">
+    ⏳ Time Left: {{ timer }} seconds
+  </div>
+</div>
+
+
+        <div class="success-message" *ngIf="showSuccessMessage">
+            🎉 Exam created successfully! Redirecting to your exam...
+        </div>
+        <div *ngIf="exam" class="exam-container">
+  <h2>📝 Exam for {{ exam.subjectName }}</h2>
+  <p>Start Time: {{ exam.startTime | date:'short' }}</p>
+<div *ngIf="exam">
+  <div *ngFor="let questions of exam.questions; let i = index">
+    <h3>Q{{ i + 1 }}: {{ questions.question }}</h3>
+    <ul>
+      <li *ngFor="let options of questions.options">
+        <label>
+          <input
+  type="radio"
+  name="q{{ i }}"
+  [value]="options.id"
+  (change)="selectOption(options.id)"
+/>
+          {{ options.option }}
+        </label>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <button type="button" (click)="submitExam()" class="create-btn">✅ Submit Exam</button>
+
+      <!-- ✅ Submit result -->
+      <div *ngIf="submitResult" class="submit-result">
+        <p><strong>✅ Score:</strong> {{ submitResult.score }}</p>
+        <p><strong>📅 Date:</strong> {{ submitResult.examDate | date: 'short' }}</p>
+        <p><strong>📘 Subject:</strong> {{ submitResult.subjectName }}</p>
+      </div>
+</div>
+    </form>
+    
+</div>

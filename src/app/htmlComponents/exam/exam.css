@@ -1,0 +1,96 @@
+.container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.card-header {
+  background: #007bff;
+  color: #fff;
+  padding: 1.5rem 2rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table thead {
+  background: #007bff;
+  color: #fff;
+}
+
+.students-table th,
+.students-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+
+@media (max-width: 768px) {
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+  }
+
+  .students-table th,
+  .students-table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+
+  .pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+
+}

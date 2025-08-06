@@ -1,0 +1,160 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #3f51b5;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 20px;
+}
+
+.subject-card {
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.subject-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card.selected {
+  border-color: #3f51b5;
+  background-color: #e8eaf6;
+}
+
+.subject-card .emoji {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.subject-card .name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.create-btn {
+  display: block;
+  width: 100%;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+  background-color: #303f9f;
+}
+
+.create-btn:disabled {
+  background-color: #9fa8da;
+  cursor: not-allowed;
+}
+
+.success-message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.exam-container {
+  margin-top: 40px;
+}
+
+.exam-container h2 {
+  font-size: 1.6rem;
+  color: #3f51b5;
+  margin-bottom: 10px;
+}
+
+.exam-container p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.exam-container h3 {
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.exam-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.exam-container li {
+  margin: 8px 0;
+}
+
+.exam-container label {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-result {
+  margin-top: 30px;
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 10px;
+  color: #2e7d32;
+  font-size: 1rem;
+}
+.timer {
+  background-color: #f9f9f9;       /* خلفية خفيفة */
+  border: 2px solid #007bff;       /* إطار أزرق */
+  border-radius: 8px;              /* زوايا دائرية */
+  padding: 12px 20px;              /* مسافة داخلية */
+  font-size: 18px;                 /* حجم الخط */
+  font-weight: bold;              /* خط عريض */
+  color: #333;                    /* لون النص */
+  width: fit-content;            /* يضبط العرض على المحتوى */
+  margin: 16px auto;             /* توسيط أفقي */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  text-align: center;
+}

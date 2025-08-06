@@ -1,0 +1,19 @@
+<div class="history-container">
+  <h2>📚 Student Exam History</h2>
+
+  <div *ngIf="history.length > 0">
+    <div *ngFor="let exam of history" class="exam-entry">
+      <h3>📘 {{ exam.subjectName }}</h3>
+      <p>📅 {{ exam.startTime | date: 'short' }}</p>
+      <p>✅ Score: {{ exam.score}}</p>
+    </div>
+
+    <div class="pagination">
+      <button (click)="goToPage(pageNumber - 1)" [disabled]="pageNumber === 1">Previous</button>
+      <span>Page {{ pageNumber }} of {{ totalPages }}</span>
+      <button (click)="goToPage(pageNumber + 1)" [disabled]="pageNumber === totalPages">Next</button>
+    </div>
+  </div>
+
+  <p *ngIf="history.length === 0 && studentId">No exam history found.</p>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="header-content">
+        <div class="title-section">
+          <h1 class="card-title">Exam Data</h1>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="table-container">
+        <table class="students-table">
+          <thead>
+            <tr>
+              <th>Exam ID</th>
+              <th>Student ID</th>
+              <th>Subject Name</th>
+              <th>Start Time</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr *ngFor="let exam of pagedExams()">
+          <td>{{exam.id}}</td>
+          <td>{{exam.studentId}}</td>
+          <td>{{exam.subjectName}}</td>
+          <td>{{exam.startTime}}</td>
+          <td>{{exam.score}}</td>
+        </tr>
+      </tbody>
+        </table>
+        
+      </div>
+      <div class="pagination">
+  <button (click)="prevPage()" [disabled]="page === 1">⬅ Prev</button>
+  <span>Page {{page}} of {{ Math.ceil(exams().length / pageSize) }}</span>
+  <button (click)="nextPage()" [disabled]="page >= Math.ceil(exams().length / pageSize)">Next ➡</button>
+</div>
+    </div>
+  </div>
+</div>

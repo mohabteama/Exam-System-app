@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { JwtAuth } from '../../components/jwtAuth';
 import { LoginDto } from '../../components/login';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ import { LoginDto } from '../../components/login';
 export class Authentication {
   registerUrl = "Authentication/Register"
   loginUrl = "Authentication/Login"
-  // studentUrl = "Student"
 
   constructor(private http:HttpClient ){}
 
@@ -30,8 +30,11 @@ export class Authentication {
     const options = headers ? { headers } : undefined;
     return this.http.post<JwtAuth>(`${environment.apiUrl}/${this.loginUrl}`,user);
   }
+  public getRoleFromToken(): string | null {
+    const token = localStorage.getItem('jwtToken');23
+    if (!token) return null;
 
-  // public getStudent():Observable<any>{
-  //   return this.http.get<any>(`${environment.apiUrl}/${this.studentUrl}`);
-  // }
+    const decoded: any = jwtDecode(token);
+    return decoded.role || null;
+  }
 }
