@@ -6,6 +6,7 @@ export interface SubmitExamDto {
 
 // لو هتستقبل النتيجة
 export interface SubmitResultDto {
+  
   examId: number;
   subjectName: string;
   examDate: string;

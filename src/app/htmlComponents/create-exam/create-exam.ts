@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { SubmitExamDto, SubmitResultDto } from '../../components/submitExam';
 import { CreateExamService } from '../../services/createExam/create-exam';
+import { NotificationService } from '../../services/notification/notification';
+
 
 @Component({
   selector: 'app-create-exam',
@@ -13,7 +15,7 @@ import { CreateExamService } from '../../services/createExam/create-exam';
   styleUrl: './create-exam.css'
 })
 export class CreateExam {
-
+showNotification = false;
 exam: any | null = null;
   submitResult?: SubmitResultDto;
   timer: number = 60; // عدد الثواني
@@ -23,7 +25,27 @@ intervalId: any;
   showSuccessMessage = false;
   private router = inject(Router);
 
-constructor(private createExamService: CreateExamService,examService: CreateExamService) {}
+constructor(private createExamService: CreateExamService,private notificationService: NotificationService,examService: CreateExamService) {}
+ ngOnInit() {
+    this.notificationService.startConnection();
+    this.notificationService.onScoreReceived((data) => {
+      console.log('📡 SignalR - Score Received:', data);
+      this.submitResult = {
+        examId: data.id,
+        score: data.score,
+        examDate: data.examDate,
+        subjectName: data.subjectName,
+      };
+      
+      // Show notification
+      this.showNotification = true;
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 5000);
+    });
+  }
 
 
   createExam() {
@@ -83,8 +105,8 @@ constructor(private createExamService: CreateExamService,examService: CreateExam
         this.submitResult = result;
         console.log('Exam submitted successfully', result);
         clearInterval(this.intervalId); // ✅ أوقف التايمر
-        localStorage.removeItem('jwtToken');
-        this.router.navigate(['/nav']);
+        
+        // this.router.navigate(['/nav']);
 
       },
       error: (err) => {

@@ -76,11 +76,17 @@
   <button type="button" (click)="submitExam()" class="create-btn">✅ Submit Exam</button>
 
       <!-- ✅ Submit result -->
-      <div *ngIf="submitResult" class="submit-result">
-        <p><strong>✅ Score:</strong> {{ submitResult.score }}</p>
-        <p><strong>📅 Date:</strong> {{ submitResult.examDate | date: 'short' }}</p>
-        <p><strong>📘 Subject:</strong> {{ submitResult.subjectName }}</p>
-      </div>
+      <div *ngIf="showNotification" class="notification">
+  <div class="notification-content">
+    <div class="notification-icon">🔔</div>
+    <div class="notification-message">
+      <h3>Exam Results Received!</h3>
+      <p>Score: {{ submitResult?.score }}</p>
+      <p>Subject: {{ submitResult?.subjectName }}</p>
+    </div>
+    <button class="close-btn" (click)="showNotification = false">×</button>
+  </div>
+</div>
 </div>
     </form>
     
