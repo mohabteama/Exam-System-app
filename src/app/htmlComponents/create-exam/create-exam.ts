@@ -17,6 +17,7 @@ import { NotificationService } from '../../services/notification/notification';
 export class CreateExam {
 showNotification = false;
 exam: any | null = null;
+isExamStarted : boolean | undefined;
   submitResult?: SubmitResultDto;
   timer: number = 60; // عدد الثواني
 intervalId: any;
@@ -53,6 +54,7 @@ constructor(private createExamService: CreateExamService,private notificationSer
       alert('Please select a subject first!');
       return;
     }
+    this.isExamStarted = true;
     const subjectMapping: {[key: string]: string} = {
       'mathematics': '1',
       'science': '2',
@@ -68,12 +70,15 @@ constructor(private createExamService: CreateExamService,private notificationSer
     };
 
     this.createExamService.createExam(subjectId).subscribe({
-  next: (response) => {
-    console.log('✅ FULL EXAM RESPONSE:', response);
-    this.exam = response;
-    this.startTimer(); // ✅ شغّل التايمر هنا
-  }
-});
+    next: (response) => {
+      console.log('✅ FULL EXAM RESPONSE:', response);
+      this.exam = response;
+      this.startTimer();
+    },
+    error: () => {
+      this.isExamStarted = false; // ❌ لو حصل خطأ، رجع الزرار يشتغل
+    }
+  });
   }
    selectSubject(subject: string) {
     this.selectedSubject = subject;

@@ -38,7 +38,7 @@
         </div>
         
 
-        <button type="submit" class="create-btn" [disabled]="!selectedSubject">
+        <button type="submit" class="create-btn" [disabled]="!selectedSubject || isExamStarted">
             Start Exam
         </button>
         

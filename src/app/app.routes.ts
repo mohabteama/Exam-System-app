@@ -15,6 +15,7 @@ export const routes: Routes = [
   { path: "student", component: GetStudent, canActivate: [AuthGuard] },
   { path: "exam", component: getExam, canActivate: [AuthGuard] },
   { path: "create-exam", component: CreateExam, canActivate: [AuthGuard] },
+  
   {path: "admin-navbar", loadComponent: () => import('./htmlComponents/admin-navbar/admin-navbar').then(m => m.AdminNavbarComponent), canActivate: [AuthGuard]},
   {
     path: "student-exam-history",

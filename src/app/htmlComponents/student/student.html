@@ -1,31 +1,55 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <div class="header-content">
-        <div class="title-section">
-          <h1 class="card-title">Students Data</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Data</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="header-content">
+                    <div class="title-section">
+                        <h1 class="card-title">Students Data</h1>
+                        <p class="card-subtitle">view student information</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="table-container">
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of students" class="table-row">
+                                <td class="font-medium">{{student.id}}</td>
+                                <td>{{student.email}}</td>
+                                <td>{{student.username}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="no-results" *ngIf="!students || students.length === 0">
+                    <div class="empty-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="m22 21-3-3m0 0a5 5 0 1 0-7-7 5 5 0 0 0 7 7z"></path>
+                        </svg>
+                    </div>
+                    <h3>No Data Found</h3>
+                    <p>No students found in the system</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="card-content">
-      <div class="table-container">
-        <table class="students-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Email</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{student.id}}</td>
-          <td>{{student.email}}</td>
-          <td>{{student.username}}</td>
-        </tr>
-      </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+</body>
+</html>

@@ -11,7 +11,7 @@ export interface QuestionDto {
 }
 
 export interface CreateExamDto {
-  id: number;
+  id: number; 
   studentId: string;
   subjectId: number;
   subjectName: string;
