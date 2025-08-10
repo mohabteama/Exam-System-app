@@ -6,6 +6,7 @@ import { Login } from './htmlComponents/login/login';
 import { Register } from './htmlComponents/register/register';
 import { GetStudent } from './htmlComponents/student/student';
 import { AuthGuard } from './guards/auth-guard';
+import { AddQuestionsAnswers } from './htmlComponents/add-questions-answers/add-questions-answers';
 
 export const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: 'full' },
@@ -15,8 +16,8 @@ export const routes: Routes = [
   { path: "student", component: GetStudent, canActivate: [AuthGuard] },
   { path: "exam", component: getExam, canActivate: [AuthGuard] },
   { path: "create-exam", component: CreateExam, canActivate: [AuthGuard] },
-  
-  {path: "admin-navbar", loadComponent: () => import('./htmlComponents/admin-navbar/admin-navbar').then(m => m.AdminNavbarComponent), canActivate: [AuthGuard]},
+  { path: "add-questions-answers", component: AddQuestionsAnswers, canActivate: [AuthGuard] },
+  { path: "admin-navbar", loadComponent: () => import('./htmlComponents/admin-navbar/admin-navbar').then(m => m.AdminNavbarComponent), canActivate: [AuthGuard] },
   {
     path: "student-exam-history",
     loadComponent: () =>

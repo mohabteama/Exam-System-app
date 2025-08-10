@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Create Question</h2>
+
+  <label>Subject ID:</label>
+  <input type="number" [(ngModel)]="subjectId">
+
+  <label>Question:</label>
+  <input type="text" [(ngModel)]="questionText">
+
+  <button (click)="create()">Create Question</button>
+
+  <div *ngIf="lastQuestionId" class="answers-section">
+    <h3>Add Answers</h3>
+
+    <label>Answer Text:</label>
+    <input type="text" [(ngModel)]="answerText">
+    <p>Answer Text: {{answerText}}</p>
+
+    <label class="check-label">
+      <input type="checkbox" [(ngModel)]="isCorrect"> Correct
+    </label>
+
+    <button [disabled]="!canAddAnswer" (click)="addAnswer()">Add Answer</button>
+
+    <ul>
+      <li *ngFor="let opt of options">
+        {{ opt.text }} - <strong>{{ opt.isCorrect ? 'Correct' : 'Wrong' }}</strong>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="!lastQuestionId" class="info-message">
+    <p>Create a question first to add answers</p>
+  </div>
+</div>
