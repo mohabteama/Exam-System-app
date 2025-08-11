@@ -17,8 +17,9 @@
     <p>Answer Text: {{answerText}}</p>
 
     <label class="check-label">
-      <input type="checkbox" [(ngModel)]="isCorrect"> Correct
+     <input type="checkbox" [(ngModel)]="isCorrect"> Correct
     </label>
+    <p>Is Correct: {{isCorrect}}</p>
 
     <button [disabled]="!canAddAnswer" (click)="addAnswer()">Add Answer</button>
 

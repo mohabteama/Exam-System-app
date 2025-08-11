@@ -17,4 +17,8 @@ export class AdminNavbarComponent  {
   goToStudents() {
     this.router.navigate(['/student']);
   }
+
+  goToAddingQuestionAnswer() {
+    this.router.navigate(['/add-questions-answers']);
+  }
 }

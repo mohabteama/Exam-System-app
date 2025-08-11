@@ -56,12 +56,12 @@ constructor(private createExamService: CreateExamService,private notificationSer
     }
     this.isExamStarted = true;
     const subjectMapping: {[key: string]: string} = {
-      'mathematics': '1',
-      'science': '2',
-      'history': '3',
-      'english': '4',
-      'geography': '5',
-      'physics': '6'
+      'mathematics': '1002',
+      'science': '1003',
+      'history': '1004',
+      'english': '1005',
+      'geography': '1006',
+      'physics': '1007'
     };
     const subjectId = +subjectMapping[this.selectedSubject];
     const token = localStorage.getItem('jwtToken');

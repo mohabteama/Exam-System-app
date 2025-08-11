@@ -25,6 +25,7 @@ export class AddQuestionsAnswersService {
   createAnswer(questionId: number, answer: { text: string, isCorrect: boolean }) {
     const optionDto = {
       option: answer.text,
+      isCorrect: answer.isCorrect
     };
     
     console.log(`Sending request to: ${this.createOptionUrl}?questionId=${questionId}`);

@@ -53,9 +53,9 @@ export class AddQuestionsAnswers implements OnInit {
           
           // Try to find the ID
           let foundId = null;
-          if (res && res.QuestionId !== undefined) {
-            // Based on your backend, it should be QuestionId
-            foundId = res.QuestionId;
+          if (res && res.questionId !== undefined) {
+            // Based on your backend, it should be questionId
+            foundId = res.questionId;
           } else if (res && res.id !== undefined) {
             foundId = res.id;
           }
