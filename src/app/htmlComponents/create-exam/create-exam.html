@@ -9,12 +9,12 @@
         <div class="form-group">
             <label for="subject">Choose Your Subject:</label>
             <div class="subjects-grid">
-                <div class="subject-card" [class.selected]="selectedSubject === 'mathematics'" (click)="selectSubject('mathematics')">
+                <div class="subject-card" [class.selected]="selectedSubject === 'science'" (click)="selectSubject('science')">
                     <span class="emoji">🔬</span>
                     <div class="name">Science</div>
                     
                 </div>
-                <div class="subject-card" [class.selected]="selectedSubject === 'science'" (click)="selectSubject('science')">
+                <div class="subject-card" [class.selected]="selectedSubject === 'mathematics'" (click)="selectSubject('mathematics')">
                 <span class="emoji">🔢</span>
                     <div class="name">Mathematics</div>
                 </div>

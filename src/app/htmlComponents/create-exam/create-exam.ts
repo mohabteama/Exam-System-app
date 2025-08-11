@@ -56,8 +56,8 @@ constructor(private createExamService: CreateExamService,private notificationSer
     }
     this.isExamStarted = true;
     const subjectMapping: {[key: string]: string} = {
-      'mathematics': '1002',
-      'science': '1003',
+      'science': '1002',
+      'mathematics': '1003',
       'history': '1004',
       'english': '1005',
       'geography': '1006',
