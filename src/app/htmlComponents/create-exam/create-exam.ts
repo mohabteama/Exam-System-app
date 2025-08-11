@@ -19,7 +19,7 @@ showNotification = false;
 exam: any | null = null;
 isExamStarted : boolean | undefined;
   submitResult?: SubmitResultDto;
-  timer: number = 60; // عدد الثواني
+  timer: number = 60;
 intervalId: any;
   selectedOptionIds: number[] = [];
   selectedSubject: string | null = null;
@@ -38,10 +38,8 @@ constructor(private createExamService: CreateExamService,private notificationSer
         subjectName: data.subjectName,
       };
       
-      // Show notification
       this.showNotification = true;
       
-      // Auto-hide after 5 seconds
       setTimeout(() => {
         this.showNotification = false;
       }, 5000);
@@ -76,7 +74,7 @@ constructor(private createExamService: CreateExamService,private notificationSer
       this.startTimer();
     },
     error: () => {
-      this.isExamStarted = false; // ❌ لو حصل خطأ، رجع الزرار يشتغل
+      this.isExamStarted = false; 
     }
   });
   }
@@ -86,7 +84,7 @@ constructor(private createExamService: CreateExamService,private notificationSer
 
   selectOption(optionId: number) {
     if (!this.selectedOptionIds.includes(optionId)) {
-      // Remove any previous selection for the same question
+     
       this.selectedOptionIds = this.selectedOptionIds.filter(
         (id) => !this.isSameQuestion(id, optionId)
       );
@@ -95,8 +93,8 @@ constructor(private createExamService: CreateExamService,private notificationSer
   }
 
   isSameQuestion(existingOptionId: number, newOptionId: number): boolean {
-    // Implement logic if needed to prevent multiple answers per question
-    return false; // You can make this smarter if options contain questionId
+   
+    return false; 
   }
 
   submitExam() {
@@ -109,9 +107,8 @@ constructor(private createExamService: CreateExamService,private notificationSer
       next: (result) => {
         this.submitResult = result;
         console.log('Exam submitted successfully', result);
-        clearInterval(this.intervalId); // ✅ أوقف التايمر
+        clearInterval(this.intervalId);
         
-        // this.router.navigate(['/nav']);
 
       },
       error: (err) => {
@@ -120,14 +117,14 @@ constructor(private createExamService: CreateExamService,private notificationSer
     });
   }
   startTimer() {
-  this.timer = 60; // يبدأ من 60 ثانية
+  this.timer = 60; 
   this.intervalId = setInterval(() => {
     this.timer--;
     if (this.timer <= 0) {
       clearInterval(this.intervalId);
-      this.submitExam(); // ⏰ يقدّم الامتحان تلقائيًا
+      this.submitExam(); 
     }
-  }, 1000); // كل ثانية
+  }, 1000); 
 }
 navigateToHistory() {
     this.router.navigate(['/student-exam-history']);

@@ -12,7 +12,6 @@ import { HttpClient } from '@angular/common/http'; // Add this import
   styleUrls: ['./add-questions-answers.css']
 })
 export class AddQuestionsAnswers implements OnInit {
-  // If you need baseUrl in your component:
   private baseUrl = 'https://localhost:7153/api';
   
   subjectId: number = 0;
@@ -25,11 +24,10 @@ export class AddQuestionsAnswers implements OnInit {
 
   constructor(
     private addQuestionsAnswersService: AddQuestionsAnswersService,
-    private http: HttpClient // Add HttpClient to your constructor
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    // Check if we have a saved question ID in localStorage
     const savedId = localStorage.getItem('lastQuestionId');
     if (savedId) {
       this.lastQuestionId = parseInt(savedId, 10);
@@ -51,10 +49,8 @@ export class AddQuestionsAnswers implements OnInit {
         next: (res: any) => {
           console.log('Full API Response:', res);
           
-          // Try to find the ID
           let foundId = null;
           if (res && res.questionId !== undefined) {
-            // Based on your backend, it should be questionId
             foundId = res.questionId;
           } else if (res && res.id !== undefined) {
             foundId = res.id;
@@ -96,7 +92,6 @@ export class AddQuestionsAnswers implements OnInit {
       return;
     }
 
-    // Use the corrected service method
     this.addQuestionsAnswersService.createAnswer(this.lastQuestionId, {
       text: this.answerText,
       isCorrect: this.isCorrect

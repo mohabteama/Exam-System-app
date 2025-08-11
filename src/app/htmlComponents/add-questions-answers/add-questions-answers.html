@@ -1,44 +1,102 @@
 <div class="container">
-  <h2>Create Question</h2>
+  <div class="header-section">
+    <h2 class="title">✨ Create Question</h2>
+    <div class="progress-indicator">
+      <div class="step" [class.active]="true">
+        <span class="step-number">1</span>
+        <span class="step-label">Question</span>
+      </div>
+      <div class="step" [class.active]="lastQuestionId">
+        <span class="step-number">2</span>
+        <span class="step-label">Answers</span>
+      </div>
+    </div>
+  </div>
 
-  <label>Subject:</label>
-  <select [(ngModel)]="subjectId" class="form-control">
-    <option value="" disabled selected>Select a subject</option>
-    <option value="1002">Science 🔬</option>
-    <option value="1003">Mathematics 🔢</option>
-    <option value="1004">History 📚</option>
-    <option value="1005">English 📝</option>
-    <option value="1006">Geography 🌍</option>
-    <option value="physics">Physics ⚛️</option>
-  </select>
+  <div class="form-section">
+    <div class="form-group">
+      <label class="form-label">📚 Subject:</label>
+      <div class="select-wrapper">
+        <select [(ngModel)]="subjectId" class="form-control select-field">
+          <option value="" disabled selected>Select a subject</option>
+          <option value="1002">Science 🔬</option>
+          <option value="1003">Mathematics 🔢</option>
+          <option value="1004">History 📚</option>
+          <option value="1005">English 📝</option>
+          <option value="1006">Geography 🌍</option>
+          <option value="physics">Physics ⚛️</option>
+        </select>
+      </div>
+    </div>
 
-  <label>Question:</label>
-  <input type="text" [(ngModel)]="questionText">
+    <div class="form-group">
+      <label class="form-label">❓ Question:</label>
+      <input type="text" [(ngModel)]="questionText" class="form-control input-field" placeholder="Enter your question here...">
+    </div>
 
-  <button (click)="create()">Create Question</button>
+    <button (click)="create()" class="btn btn-primary create-btn">
+      <span class="btn-icon">✨</span>
+      Create Question
+    </button>
+  </div>
 
   <div *ngIf="lastQuestionId" class="answers-section">
-    <h3>Add Answers</h3>
+    <div class="section-header">
+      <h3 class="section-title">🎯 Add Answers</h3>
+      <div class="answer-counter">
+        <span class="counter-badge">{{options.length}}/4</span>
+      </div>
+    </div>
 
-    <label>Answer Text:</label>
-    <input type="text" [(ngModel)]="answerText">
-    <p>Answer Text: {{answerText}}</p>
+    <div class="answer-form">
+      <div class="form-group">
+        <label class="form-label">💡 Answer Text:</label>
+        <input type="text" [(ngModel)]="answerText" class="form-control input-field" placeholder="Enter answer option...">
+        <div class="input-preview">
+          <span class="preview-label">Preview:</span>
+          <span class="preview-text">{{answerText || 'Your answer will appear here...'}}</span>
+        </div>
+      </div>
 
-    <label class="check-label">
-      <input type="checkbox" [(ngModel)]="isCorrect"> Correct
-    </label>
-    <p>Is Correct: {{isCorrect}}</p>
+      <div class="checkbox-group">
+        <label class="check-label modern-checkbox">
+          <input type="checkbox" [(ngModel)]="isCorrect">
+          <span class="checkmark"></span>
+          <span class="checkbox-text">✅ Mark as Correct Answer</span>
+        </label>
+        <div class="checkbox-preview">
+          <span class="status-badge" [class.correct]="isCorrect" [class.wrong]="!isCorrect">
+            {{isCorrect ? '✅ Correct' : '❌ Wrong'}}
+          </span>
+        </div>
+      </div>
 
-    <button [disabled]="!canAddAnswer" (click)="addAnswer()">Add Answer</button>
+      <button [disabled]="!canAddAnswer" (click)="addAnswer()" class="btn btn-secondary add-answer-btn">
+        <span class="btn-icon">➕</span>
+        Add Answer
+      </button>
+    </div>
 
-    <ul>
-      <li *ngFor="let opt of options">
-        {{ opt.text }} - <strong>{{ opt.isCorrect ? 'Correct' : 'Wrong' }}</strong>
-      </li>
-    </ul>
+    <div class="answers-list" *ngIf="options.length > 0">
+      <h4 class="list-title">📝 Answer Options</h4>
+      <ul class="options-grid">
+        <li *ngFor="let opt of options; let i = index" class="option-card" [class.correct-option]="opt.isCorrect">
+          <div class="option-content">
+            <span class="option-number">{{i + 1}}</span>
+            <span class="option-text">{{ opt.text }}</span>
+            <span class="option-status" [class.correct]="opt.isCorrect" [class.wrong]="!opt.isCorrect">
+              {{ opt.isCorrect ? '✅' : '❌' }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  
+
   <div *ngIf="!lastQuestionId" class="info-message">
-    <p>Create a question first to add answers</p>
+    <div class="info-card">
+      <div class="info-icon">💡</div>
+      <p class="info-text">Create a question first to add answers</p>
+    </div>
   </div>
 </div>

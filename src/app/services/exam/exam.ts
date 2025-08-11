@@ -24,7 +24,6 @@ export class Exam {
     console.log(this.token);
   }
     public getExamData(page: number, pageSize: number) {
-      //Interceoptor will add the token automatically
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${this.token}`
       });

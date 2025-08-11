@@ -6,7 +6,7 @@ export const authInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<unknown>> => {
-  const token = localStorage.getItem('jwtToken'); // or 'token' based on your implementation
+  const token = localStorage.getItem('jwtToken');
 
   if (token) {
     const clonedRequest = req.clone({

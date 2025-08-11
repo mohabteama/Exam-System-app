@@ -1,4 +1,4 @@
-// models/exam-history.dto.ts
+
 export interface ExamHistoryDto {
   id: number;
   studentId: string;
@@ -20,6 +20,6 @@ export interface PaginatedResultDto<T> {
 
 export interface TokenPayload {
   studentId: string;
-  // ممكن تضيف role أو username لو بتحب
+
 }
 

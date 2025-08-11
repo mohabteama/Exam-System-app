@@ -45,7 +45,7 @@ export class getExam implements OnInit {
     this.examService.getExamData(this.page, this.pageSize).subscribe({
       next: (data) => {
         this.exams.set(data.items);
-        this.updatePagedExams(); // <== استخدم البيانات المقسمة
+        this.updatePagedExams(); 
         this.isLoading = false;
       },
       error: (err: any) => {

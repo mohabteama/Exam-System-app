@@ -24,7 +24,6 @@ interface PaginatedResultDto<T> {
 
 interface TokenPayload {
   nameid: string;
-  // other claims if needed
 }
 
 @Component({
@@ -49,7 +48,7 @@ studentExamHistory: any;
     if (token) {
       const decoded = jwtDecode<TokenPayload>(token);
       this.studentId = decoded.nameid;
-      this.fetchHistory(); // load on init
+      this.fetchHistory(); 
     }
   }
 

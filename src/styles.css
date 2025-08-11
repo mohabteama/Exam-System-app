@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +11,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Login Page Styles */
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -71,7 +69,6 @@ body {
   border-color: #667eea;
 }
 
-/* Registration Page Styles */
 .auth-container {
   min-height: 100vh;
   display: flex;
@@ -108,7 +105,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Tab Styles */
 .auth-tabs {
   display: flex;
   margin-bottom: 2rem;
@@ -138,7 +134,6 @@ body {
   background: #f8f9fa;
 }
 
-/* Form Styles */
 .auth-form {
   display: block;
 }
@@ -183,7 +178,6 @@ body {
   font-style: italic;
 }
 
-/* Checkbox Styles */
 .checkbox-group {
   margin-bottom: 1.5rem;
 }
@@ -230,7 +224,6 @@ body {
   border-color: #3498db;
 }
 
-/* Password Strength Indicator */
 .password-strength {
   margin-top: 0.5rem;
   font-size: 0.85rem;
@@ -267,7 +260,6 @@ body {
   margin-top: 0.25rem;
 }
 
-/* Password Match Indicator */
 .password-match {
   margin-top: 0.5rem;
   font-size: 0.85rem;
@@ -283,7 +275,6 @@ body {
   font-weight: 600;
 }
 
-/* Button Styles */
 .btn-full {
   width: 100%;
   padding: 1rem;
@@ -292,7 +283,6 @@ body {
   margin-top: 1rem;
 }
 
-/* Link Styles */
 .link {
   color: #3498db;
   text-decoration: none;
@@ -303,7 +293,6 @@ body {
   text-decoration: underline;
 }
 
-/* Footer */
 .auth-footer {
   text-align: center;
   margin-top: 2rem;
@@ -316,7 +305,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* Form Validation Styles */
 .form-group.error input,
 .form-group.error select {
   border-color: #e74c3c;
@@ -343,7 +331,6 @@ body {
   display: block;
 }
 
-/* Loading State */
 .btn.loading {
   position: relative;
   color: transparent;
@@ -368,7 +355,6 @@ body {
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Dashboard Layout */
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
@@ -437,7 +423,6 @@ body {
   color: #666;
 }
 
-/* Dashboard Stats */
 .dashboard-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -478,7 +463,6 @@ body {
   color: #2c3e50;
 }
 
-/* Dashboard Content */
 .dashboard-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -533,7 +517,6 @@ body {
   gap: 0.75rem;
 }
 
-/* Buttons */
 .btn {
   padding: 0.75rem 1.5rem;
   border: none;
@@ -586,7 +569,6 @@ body {
   background: #f8f9fa;
 }
 
-/* Tables */
 .table-container {
   background: white;
   border-radius: 10px;
@@ -616,7 +598,6 @@ body {
   background: #f8f9fa;
 }
 
-/* Status Badges */
 .status {
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
@@ -644,7 +625,6 @@ body {
   color: #155724;
 }
 
-/* Score Badges */
 .score {
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
@@ -666,7 +646,6 @@ body {
   color: #721c24;
 }
 
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -752,7 +731,6 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Subject Cards */
 .subjects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -797,7 +775,6 @@ body {
   color: #666;
 }
 
-/* Exam Cards */
 .exam-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -836,7 +813,6 @@ body {
   gap: 0.75rem;
 }
 
-/* Results List */
 .results-list {
   display: flex;
   flex-direction: column;
@@ -866,7 +842,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Exam Interface */
 .exam-interface {
   min-height: 100vh;
   display: flex;
@@ -1112,7 +1087,6 @@ body {
   transition: width 0.3s;
 }
 
-/* Search and Filter */
 .search-bar {
   display: flex;
   gap: 1rem;
@@ -1141,7 +1115,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
@@ -1156,7 +1129,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .dashboard-layout {
     flex-direction: column;
@@ -1223,7 +1195,6 @@ body {
     flex-direction: column;
   }
   
-  /* Registration responsive styles */
   .auth-card {
     margin: 1rem;
     padding: 1.5rem;
@@ -1280,7 +1251,6 @@ body {
     flex-direction: column;
   }
   
-  /* Registration responsive styles */
   .auth-container {
     padding: 1rem 0.5rem;
   }
@@ -1309,7 +1279,6 @@ body {
   }
 }
 
-/* Print Styles */
 @media print {
   .sidebar,
   .exam-footer,
@@ -1332,7 +1301,6 @@ body {
   }
 }
 
-/* Animation Classes */
 .fade-in {
   animation: fadeIn 0.3s ease-in;
 }
@@ -1361,7 +1329,6 @@ body {
   }
 }
 
-/* Focus States for Accessibility */
 .btn:focus,
 .btn-icon:focus,
 input:focus,
@@ -1371,7 +1338,6 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-/* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   .stat-card,
   .table-container,
@@ -1390,7 +1356,6 @@ textarea:focus {
   }
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,4 +1,3 @@
-// src/app/services/notification.service.ts
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 
@@ -10,7 +9,7 @@ export class NotificationService {
 
   public startConnection(): void {
     this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5023/hub/notifications') // ده نفس اللي عملناه في الباكيند
+      .withUrl('http://localhost:5023/hub/notifications')
       .withAutomaticReconnect()
       .build();
 

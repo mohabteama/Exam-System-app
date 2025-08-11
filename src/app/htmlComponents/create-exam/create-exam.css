@@ -146,19 +146,19 @@ label {
   font-size: 1rem;
 }
 .timer {
-  background-color: #f9f9f9;       /* خلفية خفيفة */
-  border: 2px solid #007bff;       /* إطار أزرق */
-  border-radius: 8px;              /* زوايا دائرية */
-  padding: 12px 20px;              /* مسافة داخلية */
-  font-size: 18px;                 /* حجم الخط */
-  font-weight: bold;              /* خط عريض */
-  color: #333;                    /* لون النص */
-  width: fit-content;            /* يضبط العرض على المحتوى */
-  margin: 16px auto;             /* توسيط أفقي */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  background-color: #f9f9f9;       
+  border: 2px solid #007bff;    
+  border-radius: 8px;            
+  padding: 12px 20px;           
+  font-size: 18px;             
+  font-weight: bold;           
+  color: #333;                 
+  width: fit-content;            
+  margin: 16px auto;            
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
   text-align: center;
 }
-/* Notification styles */
+
 .notification {
   position: fixed;
   top: 20px;

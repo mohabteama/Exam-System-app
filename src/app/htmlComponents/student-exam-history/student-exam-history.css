@@ -7,7 +7,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Simplified styling for original h2 title */
 .history-container h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -21,7 +20,6 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Modern card styling for exam entries */
 .exam-entry {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -51,7 +49,6 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Enhanced styling for subject name h3 */
 .exam-entry h3 {
   font-size: 1.4rem;
   font-weight: 600;
@@ -63,7 +60,6 @@
   line-height: 1.2;
 }
 
-/* Modern styling for exam details paragraphs */
 .exam-entry p {
   display: flex;
   align-items: center;
@@ -75,7 +71,6 @@
   line-height: 1.4;
 }
 
-/* Special styling for score paragraph */
 .exam-entry p:last-of-type {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -90,7 +85,6 @@
   width: fit-content;
 }
 
-/* Enhanced pagination styling */
 .pagination {
   display: flex;
   align-items: center;
@@ -138,7 +132,6 @@
   padding: 0 16px;
 }
 
-/* Enhanced empty state styling */
 .history-container > p {
   text-align: center;
   padding: 64px 32px;
@@ -153,7 +146,6 @@
   font-weight: 500;
 }
 
-/* Responsive design for mobile devices */
 @media (max-width: 768px) {
   .history-container {
     padding: 16px;
