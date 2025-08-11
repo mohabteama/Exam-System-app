@@ -1,8 +1,16 @@
 <div class="container">
   <h2>Create Question</h2>
 
-  <label>Subject ID:</label>
-  <input type="number" [(ngModel)]="subjectId">
+  <label>Subject:</label>
+  <select [(ngModel)]="subjectId" class="form-control">
+    <option value="" disabled selected>Select a subject</option>
+    <option value="1002">Science 🔬</option>
+    <option value="1003">Mathematics 🔢</option>
+    <option value="1004">History 📚</option>
+    <option value="1005">English 📝</option>
+    <option value="1006">Geography 🌍</option>
+    <option value="physics">Physics ⚛️</option>
+  </select>
 
   <label>Question:</label>
   <input type="text" [(ngModel)]="questionText">
@@ -17,7 +25,7 @@
     <p>Answer Text: {{answerText}}</p>
 
     <label class="check-label">
-     <input type="checkbox" [(ngModel)]="isCorrect"> Correct
+      <input type="checkbox" [(ngModel)]="isCorrect"> Correct
     </label>
     <p>Is Correct: {{isCorrect}}</p>
 

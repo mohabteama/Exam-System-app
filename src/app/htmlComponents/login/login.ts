@@ -17,7 +17,6 @@ import { jwtDecode } from 'jwt-decode';
     private authService= inject(Authentication);
     loginForm:FormGroup=new FormGroup(
       {
-        name:new FormControl("", Validators.required),
         email:new FormControl("",[Validators.email,Validators.required]),
         password:new FormControl("",[Validators.required])
       })

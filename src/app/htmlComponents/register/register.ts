@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Authentication } from '../../services/authentication/authentication';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +13,10 @@ import { RouterModule } from '@angular/router';
 })
 export class Register {
   private authService= inject(Authentication);
+  private router = inject(Router);
   registerForm:FormGroup=new FormGroup(
     {
+      
       name:new FormControl("", Validators.required),
       email:new FormControl("",[Validators.email,Validators.required]),
       password:new FormControl("",[Validators.required])
@@ -26,6 +28,7 @@ export class Register {
     if(!this.registerForm.invalid)
     this.authService.register(this.registerForm.value).subscribe((jwtDto) => {
       localStorage.setItem('jwtToken', jwtDto.token );
+      this.router.navigate(['/admin-navbar']);
     });
   }
 }

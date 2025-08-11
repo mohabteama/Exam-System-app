@@ -78,6 +78,14 @@ export class AddQuestionsAnswers implements OnInit {
   }
 
   addAnswer() {
+        const subjectMapping: {[key: string]: string} = {
+      'science': '1002',
+      'mathematics': '1003',
+      'history': '1004',
+      'english': '1005',
+      'geography': '1006',
+      'physics': '1007'
+    };
     if (this.lastQuestionId == null) {
       alert("Please create a question first");
       return;
